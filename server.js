@@ -5,19 +5,21 @@ let request = require('request');
 let path = require('path');
 let bodyParser = require('body-parser');
 let jwt = require('jsonwebtoken');
-let User = require('./models/user'); // get our mongoose model for user
+// let User = require('./models/user'); // get our mongoose model for user
 
-let app = express();   // TEMP
-app.use(express.static('./public')); // TEMP
+// let app = express();   // TEMP
+// app.use(express.static('./public')); // TEMP
 
 // require our routes
 // let userRoutes = require('./controllers/users_controller');
-// let flightRoutes = require('./controllers/flights_controller');
+let flightRoutes = require('./controllers/flights_controller');
 
-// temporaty testing routes
-app.get('/test', function(req,res){
-  console.log('hit /test route');
-})
+let app = express();
+
+// temporary testing routes
+// app.get('/test', function(req,res){
+//   console.log('hit /test route');
+// })
 ////////////
 
 app.use(logger('dev'));
@@ -37,10 +39,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 // });
 
 // Register the required routes
+
 // all routes starting with /users will be in the userRoutes
 // app.use('/users', userRoutes);
+
 // all routes starting with /flights will be in the flightRoutes
-// app.use('/flights', fligtRoutes)
+app.use('/flights', flightRoutes);
+
 // if using Heroku then will use process.env.PORT; otherwise local port 3000
 let server = app.listen(process.env.PORT || 3000, () => {
   let host = server.address().address;
