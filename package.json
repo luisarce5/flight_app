@@ -1,0 +1,29 @@
+{
+  "name": "flight_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisarce5/flight_app.git"
+  },
+  "author": "LA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisarce5/flight_app/issues"
+  },
+  "homepage": "https://github.com/luisarce5/flight_app#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "jsonwebtoken": "^5.4.1",
+    "mongoose": "^4.2.9",
+    "morgan": "^1.6.1",
+    "path": "^0.12.7",
+    "request": "^2.67.0"
+  }
+}
