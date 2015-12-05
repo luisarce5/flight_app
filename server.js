@@ -12,7 +12,7 @@ let jwt = require('jsonwebtoken');
 
 // require our routes
 // let userRoutes = require('./controllers/users_controller');
-let flightRoutes = require('./controllers/flights_controller');
+let airportRoutes = require('./controllers/airports_controller');
 
 let app = express();
 
@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // let mongoose = require('mongoose');
 // connect to our database
 
-// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/flight_app');
+// mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/airport_app');
 
 // let db = mongoose.connection;
 // db.on('error'), console.error.bind(console, 'Connection error:'));
@@ -43,8 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // all routes starting with /users will be in the userRoutes
 // app.use('/users', userRoutes);
 
-// all routes starting with /flights will be in the flightRoutes
-app.use('/flights', flightRoutes);
+// all routes starting with /airports will be in the airportRoutes
+app.use('/airports', airportRoutes);
 
 // if using Heroku then will use process.env.PORT; otherwise local port 3000
 let server = app.listen(process.env.PORT || 3000, () => {

@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="/js/script.js"></script>
+    <!-- <script src="/js/script.js"></script> -->
+    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Flight App</title>
   </head>
@@ -12,12 +13,19 @@
       <h1> The Flight App </h1>
       <h2> Airport Information for Private Pilots </h2>
 
-      <div id="airport-search">
-        <button id="submit-button">Submit</button>
+      <div id="airpor-test">
+        <button id="JFK-button">Submit JFK</button>
       </div>
 
 
-      <script type="text/javascript" src="js/script.js"></script>
+      <div id="airport-search-formholder">
+        <form>
+          Search by Airport Code: <input id="airport-input" type="text" name="airport-code">
+          <input id="airport-button" type="submit" value = "Submit Code">
+        </form>
+      </div>
+
+      <!-- <script type="text/javascript" src="js/script.js"></script> -->
 
   </body>
 </html>
