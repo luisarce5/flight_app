@@ -41,7 +41,7 @@ app.use('/airports', airportRoutes);
 
 
 // if using Heroku then will use process.env.PORT; otherwise local port 8000
-let server = app.listen(process.env.PORT || 3000, () => {
+let server = app.listen(process.env.PORT || 8000, () => {
   let host = server.address().address;
   let port = server.address().port;
   console.log('express running', host, port);

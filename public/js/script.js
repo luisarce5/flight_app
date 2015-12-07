@@ -2,7 +2,7 @@
 
 $(function() {
 
-  console.log ('index.html linked to script.js')
+  console.log ('index.html linked to script.js');
 
   // ===== Event listener for Submit JFK button to search for JFK Airport & display Airport info
   // =====================================================================================
@@ -53,9 +53,9 @@ $(function() {
   $('#signup-success').hide();
   $('#signup-form').hide();
   $('#signup success').hide();
+  $('#logout-link').hide();
 
-
-  // Let User Sign Up
+  // Event Lister to Let User Sign Up => Display signup form
   $('#signup-link').click((event) => {
     event.preventDefault();
     console.log("Sign Up clicked");
@@ -63,14 +63,18 @@ $(function() {
     $('#airport-profile').empty();
   })
 
-  // Save Sign Up information when Submit button is clicked in the SignUp Form
+  // Event Listener to Save Sign Up information when Submit button is clicked in the SignUp Form
   $('#submit-signup').click((event) => {
     event.preventDefault();
-    console.log('clicked Submit button for Sign Up Form');
+    console.log('just clicked Submit button for Sign Up Form');
     $('#signup-form').hide();
-    $('#signup-sucess').show();
+    console.log('just hid signup form');
+    $('#signup-success').show();
+    console.log('just showed signup suceess');
     $('#login-form').show();
+    console.log('just showed login form');
 
+    // pass info thru Ajax to create a New User in the database
     let user = {};
     user.username = $('#signup-username').val();
     user.password = $('#signup-password').val();
@@ -81,6 +85,68 @@ $(function() {
       }) // close ajax for signup
   }) // close submit-signup clicke event
 
+  // Event Listener to let User Log In => Display Log In Form
+  $('#login-link').click((event) => {
+    event.preventDefault();
+    console.log('Log In Link clicked');
+    $('#signup-form').hide();
+    $('#login-form').show();
+
+    $('#user-profile').empty();
+    $('#airport-profile').empty();
+  }) // close Event Listener for login link
+
+  $('#logout-link').click((event) => {
+    event.preventDefault();
+    $.get({
+      url: '/'
+    })
+  }) // close Event Listener for logout link
+
+  // Event Listener for Log In Submit button
+  $('#submit-login').click((event) => {
+    event.preventDefault();
+    console.log('clicked Log In Submit button');
+
+    let user = {};
+    user.username = $('#username-input').val();
+    user.password = $('#password-input').val();
+
+    $.ajax({
+      url: '/users/authenticate',
+      method: "POST",
+      data: user
+    }) // closes .ajax for POST method
+    .done(function(data){
+      // console.log('user_object:' + data.user);
+      // data here references the object containing a token or error message
+      console.log(data);
+      if (data.token) {
+        $('#signup-success').hide();
+        console.log('token: ' + data.token);
+        // placing the data.token into the User object
+        data.user.token = data.token;
+        console.log('user_token: ' + data.user.token);
+        $('#login-form').hide();
+        $('#login-link').hide();
+        $('#signup-link').hide();
+        $('#logout-link').show(); /// ###### PENDING
+
+        // create & append a customized welcome message to the user-actions div
+        let welcomeUser = document.createElement('div');
+        welcomeUser.id = "welcome-user";
+        // user.username is something we sent in the POST request, so it's still accesible with this syntax
+        welcomeUser.innerHTML = '<p> Hi, ' + user.username + ' is currently logged in </p>';
+        console.log('user_id: ' + data.user._id);
+        $('#user-welcome').append(welcomeUser);
+
+        // if user is not granted token, show a "not found" message
+      } else {
+          $('#login-failed').show();
+      }
+    })
+  }); // ends login-submit button click event
+
 
   var showAiport = function(airportData){
     console.log("here is the data passing from Ajax to showAiport");
@@ -90,7 +156,9 @@ $(function() {
 
     if (airportData.delay == "false") {
       var delay = "There are no delays.";
-      console.log(delay);
+    } else {
+      delay = "There are delays.";
+        console.log(delay);
     };
 
     result.append('<p><strong> Airport Code: </strong> ' + airportData.IATA + '</p>');
