@@ -38,7 +38,6 @@ $(function() {
         console.log(airportData);
         $('#airport-profile').empty();
         showAiport(airportData);
-        // showAirport(airportData);
       }); // close Ajax
 
     }); // close #airport-button
@@ -56,16 +55,44 @@ $(function() {
   $('#signup success').hide();
 
 
+  // Let User Sign Up
+  $('#signup-link').click((event) => {
+    event.preventDefault();
+    console.log("Sign Up clicked");
+    $('#signup-form').show();
+    $('#airport-profile').empty();
+  })
+
+  // Save Sign Up information when Submit button is clicked in the SignUp Form
+  $('#submit-signup').click((event) => {
+    event.preventDefault();
+    console.log('clicked Submit button for Sign Up Form');
+    $('#signup-form').hide();
+    $('#signup-sucess').show();
+    $('#login-form').show();
+
+    let user = {};
+    user.username = $('#signup-username').val();
+    user.password = $('#signup-password').val();
+      $.ajax({
+        url: '/users/signup',
+        method: 'POST',
+        data: user
+      }) // close ajax for signup
+  }) // close submit-signup clicke event
+
+
   var showAiport = function(airportData){
     console.log("here is the data passing from Ajax to showAiport");
     console.log(airportData);
 
     var result = $('#airport-profile').append('<div>').find('div');
 
-    if (airportData.delay == "false"){
+    if (airportData.delay == "false") {
       var delay = "There are no delays.";
       console.log(delay);
     };
+
     result.append('<p><strong> Airport Code: </strong> ' + airportData.IATA + '</p>');
     result.append('<p><strong> City: </strong> ' + airportData.city + '</p>');
     result.append('<p><strong> Airport Name: </strong>' + airportData.name + '</p>');
