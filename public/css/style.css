@@ -1,0 +1,13 @@
+#user-actions {
+  /*position: relative;
+  float: right;*/
+  text-align: right;
+  margin-right: 25px;
+  margin-top: 15px;
+  margin-bottom: 50px;
+  /*border-bottom: 1px solid black;*/
+}
+
+body {
+  /*border-top: 1px solid black;*/
+}

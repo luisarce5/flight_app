@@ -1,17 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="">
   <head>
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- <script src="/js/script.js"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Flight App</title>
   </head>
 
   <body>
-      <h1> The Flight App </h1>
-      <h2> Airport Information for Private Pilots </h2>
+      <div id="user-actions">
+        <a href="#" id="login-link">Log In</a> |
+        <a href="#" id="signup-link">Sign Up</a>
+      </div>
+
+      <div id="header">
+        <h2> The Flight App </h2>
+        <h3> Airport Information for Private Pilots </h3>
+        <p> Sum: {{1+2+3+4}} </p>
+      </div>
+
+      <div id="user-welcome">
+      </div>
+
+      <div id="signup-success">
+        <p> You have succesfully signed up.  You may now log in.  </p>
+      </div>
+
+      <form id="signup-form">
+        <h3> Sign Up </h3>
+        <strong> Username: </strong> <input id="signup-username" type="text"></br>
+        <strong> Password: </strong> <input id="signup-password" type="text"></br>
+        <button id="submit-signup"> Sign Up </button>
+      </form></br>
+
+      <form id="login-form">
+        <div id="login-failed"> <p> Username or password are incorrect.  Please try again. </p> </div>
+        <h3> Log In </h3>
+        <strong> Username: </strong> <input id="username-input" type="text" name="username"></br>
+        <strong> Password: </strong> <input id="password-input" type="password" name="password"></br>
+        <button od="submit-login"> Log in </button>
+      </form>
 
       <div id="airpor-test">
         <button id="JFK-button">Submit JFK</button>
@@ -24,6 +54,10 @@
           <input id="airport-button" type="submit" value = "Submit Code">
         </form>
       </div>
+
+      <div id="airport-profile">
+      </div>
+
 
       <!-- <script type="text/javascript" src="js/script.js"></script> -->
 

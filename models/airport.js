@@ -9,4 +9,6 @@ let airportSchema = new mongoose.Schema({
   comments: []
 });
 
-let Airport = mongoose.model('myairports', airportSchema)
+let Airport = mongoose.model('myairports', airportSchema);
+
+module.exports = Airport;
