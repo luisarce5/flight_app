@@ -211,6 +211,7 @@ $(function() {
     let result = $('#user-profile');
     console.log(data[0].username);
     console.log(data[0].my_airports);
+    result.append('<h3> User Profile </h3>');
     result.append('<p><strong> Username: </strong>' + data[0].username + '</p>' );
     result.append('<p><strong> My Airports: </strong>' + data[0].my_airports + '</p>');
     result.append('<button id="edit-profile-button" value="'+ data[0]._id +'">Edit my Profile</button>');
