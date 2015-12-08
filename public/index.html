@@ -22,55 +22,55 @@
         </div>
       </div>
 
-
       <div id="header">
         <h2> Flight App </h2>
         <h3> Airport Information to plan your Flight</h3>
         <!-- <p> Sum: {{1+2+3+4}} </p> -->
       </div>
 
-      <div id="signup-success">
-        <p> You have succesfully signed up.  You may now log in.  </p>
+      <div id = "main-container">
+          <div id="signup-success">
+            <p> You have succesfully signed up.  You may now log in.  </p>
+          </div>
+
+          <form id="signup-form">
+            <h3> Sign Up Form </h3>
+            <strong> Username: </strong> <input id="signup-username" type="text"></br>
+            <strong> Password: </strong> <input id="signup-password" type="text"></br>
+            <button id="submit-signup"> Sign Up </button>
+          </form></br>
+
+          <form id="login-form">
+            <div id="login-failed"> <p> Username or password are incorrect.  Please try again. </p> </div>
+            <h3> Log In </h3>
+            <strong> Username: </strong> <input id="username-input" type="text" name="username"></br>
+            <strong> Password: </strong> <input id="password-input" type="password" name="password"></br>
+            <button id="submit-login"> Log in </button>
+          </form>
+
+          <!-- <div id="airport-test">
+            <button id="JFK-button">Submit JFK</button>
+          </div> -->
+
+          <div id="airport-search-formholder">
+            <form>
+              Search by Airport Code: <input id="airport-input" type="text" name="airport-code">
+              <input id="airport-button" type="submit" value = "Submit Code">
+            </form>
+          </div>
+
+          <div id="user-profile">
+          </div>
+
+          <div id="airport-profile">
+          </div>
+
+          <form id="edit-profile-form">
+            <h3> Edit User Profile </h3>
+            <p><strong>My Airports: </strong>  <input id="my-airports" type="text" name="my-airports"></p>
+            <button id="submit-edit-profile">Submit</button>
+          </form>
       </div>
-
-      <form id="signup-form">
-        <h3> Sign Up Form </h3>
-        <strong> Username: </strong> <input id="signup-username" type="text"></br>
-        <strong> Password: </strong> <input id="signup-password" type="text"></br>
-        <button id="submit-signup"> Sign Up </button>
-      </form></br>
-
-      <form id="login-form">
-        <div id="login-failed"> <p> Username or password are incorrect.  Please try again. </p> </div>
-        <h3> Log In </h3>
-        <strong> Username: </strong> <input id="username-input" type="text" name="username"></br>
-        <strong> Password: </strong> <input id="password-input" type="password" name="password"></br>
-        <button id="submit-login"> Log in </button>
-      </form>
-
-      <!-- <div id="airport-test">
-        <button id="JFK-button">Submit JFK</button>
-      </div> -->
-
-      <div id="airport-search-formholder">
-        <form>
-          Search by Airport Code: <input id="airport-input" type="text" name="airport-code">
-          <input id="airport-button" type="submit" value = "Submit Code">
-        </form>
-      </div>
-
-      <div id="user-profile">
-      </div>
-
-      <div id="airport-profile">
-      </div>
-
-      <form id="edit-profile-form">
-        <h3> Edit User Profile </h3>
-        <p><strong>My Airports: </strong>  <input id="my-airports" type="text" name="my-airports"></p>
-        <button id="submit-edit-profile">Submit</button>
-      </form>
-
 
       <!-- <script type="text/javascript" src="js/script.js"></script> -->
 
