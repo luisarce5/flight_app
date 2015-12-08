@@ -19,8 +19,9 @@ function AirportController($http){
       // .get('http://services.faa.gov/airport/status/' + airportCode + '?format=application/json')
       .then(function(response){
         self.all = response;
+        console.log(response);
       }); // close .then\
-      console.log(response);
+
   } // close getAirportById
 
 } // close AirportController

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="FlightApp">
   <head>
     <meta charset="utf-8">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
@@ -64,26 +64,20 @@
           <div id="user-profile">
           </div>
 
-          <div id="airport-profile" ng-controller="AirportController as airport">
+          <div ng-controller="AirportController as airport" id="airport-profile">
               <div>
-                <button id="JFK-test" ng-click="airport.getAirport()">
+                <button id="JFK-test" ng-click="airport.getAirport()">JFK Test</button>
               </div>
 
               <div id="results_display">
                 <p ng-model="airport.all"></p>
-                <p> {{airport.all }} </p>
+                <p> {{ airport.all }} </p>
+                {{ 5 + 10}}
               </div>
+
             </div>
 
-              <!-- <p><strong> Airport Code: </strong> ' + airport.IATA + '</p>');
-              <p><strong> City: </strong> ' + airport.city + '</p>');
-              <p><strong> Airport Name: </strong>' + airport.name + '</p>'); -->
-              <!-- <p><strong> Delay: </strong> '+ delay + '</p>'); -->
-              <!-- <p><strong> Delay Reason: </strong>' + airportData.status.reason + '</p>');
-              <p><strong> Temp: </strong>' + airportData.weather.temp + '</p>');
-              <p><strong> Visibility: </strong>' + airportData.weather.visibility + ' miles</p>');
-              <p><strong> Weather Conditions: </strong>' + airportData.weather.weather + '</p>');
-              <p><strong> Wind: </strong>' + airportData.weather.wind + '</p>'); -->
+
 
           </div>
 
