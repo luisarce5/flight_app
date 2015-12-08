@@ -5,7 +5,8 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/app.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
+    <script src="js/airportController.js"></script>
+    <!-- <script type="text/javascript" src="js/script.js"></script> -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Flight App</title>
   </head>
@@ -63,7 +64,27 @@
           <div id="user-profile">
           </div>
 
-          <div id="airport-profile">
+          <div id="airport-profile" ng-controller="AirportController as airport">
+              <div>
+                <button id="JFK-test" ng-click="airport.getAirport()">
+              </div>
+
+              <div id="results_display">
+                <p ng-model="airport.all"></p>
+                <p> {{airport.all }} </p>
+              </div>
+            </div>
+
+              <!-- <p><strong> Airport Code: </strong> ' + airport.IATA + '</p>');
+              <p><strong> City: </strong> ' + airport.city + '</p>');
+              <p><strong> Airport Name: </strong>' + airport.name + '</p>'); -->
+              <!-- <p><strong> Delay: </strong> '+ delay + '</p>'); -->
+              <!-- <p><strong> Delay Reason: </strong>' + airportData.status.reason + '</p>');
+              <p><strong> Temp: </strong>' + airportData.weather.temp + '</p>');
+              <p><strong> Visibility: </strong>' + airportData.weather.visibility + ' miles</p>');
+              <p><strong> Weather Conditions: </strong>' + airportData.weather.weather + '</p>');
+              <p><strong> Wind: </strong>' + airportData.weather.wind + '</p>'); -->
+
           </div>
 
           <form id="edit-profile-form">

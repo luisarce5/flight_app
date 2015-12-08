@@ -1,5 +1,26 @@
 'use strict';
-angular.module('FlightApp', [])
-  .controller('AirportsController', AirportsController);
+console.log('index.html file linked to airportController.js');
 
-  Airpor
+angular.module('FlightApp', [])
+  .controller('AirportController', AirportController);
+
+AirportController.$inject = ['$http'];
+
+function AirportController($http){
+  let self = this;
+  self.all = [];
+  self.getAirport = getAirport;
+
+  getAirport();
+
+  function getAirport(){
+    $http
+      .get('http://services.faa.gov/airport/status/JFK?format=application/json')
+      // .get('http://services.faa.gov/airport/status/' + airportCode + '?format=application/json')
+      .then(function(response){
+        self.all = response;
+      }); // close .then\
+      console.log(response);
+  } // close getAirportById
+
+} // close AirportController
