@@ -16,6 +16,10 @@ body {
 #main-container {
   background-color: white;
   height: 500px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Clear_sky_over_Riga,_2008.jpg');
+  background-size: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #user-actions {
