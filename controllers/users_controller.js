@@ -66,8 +66,22 @@ router.route('/:id')
       if (err) return next(err);
       res.send(user);
       console.log("the user data in GET by :id request: " + user);
-    }); // ends .find
-  }); // ends .get for /:id
+    }); // ends User.find
+  }) // ends .get for /:id
+
+  .put((req, res) => {
+    console.log('hit /users/:id POST route');
+    console.log(req.params.id);
+    User.findOneAndUpdate({
+      _id: req.params.id
+    }, {
+      $set: req.body
+    }, function (err, user) {
+      res.send(user);
+    });
+    // var userData = req.body.data;
+    // console.log(userData);
+  });
 
 router.route('/signup')
   .post ((req, res) => {

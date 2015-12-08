@@ -147,6 +147,13 @@ $(function() {
         console.log('user_id: ' + data.user._id);
         $('#user-actions').append(welcomeUser);
 
+        // store id of current user
+        let currentUser = document.createElement('div');
+        currentUser.id = "current-user";
+        currentUser.innerHTML = data.user._id;
+        $('#user-actions').append(currentUser);
+        $('#current-user').hide();
+
         // Once a user has logged in, they can click on a link to view their profile.
         $('#my-profile').click((event) => {
           event.preventDefault();
@@ -219,24 +226,36 @@ $(function() {
               //===== Event listener for submit edit profile Button - WORK IN PROGRESS
               //====================================================
 
-              $('#submit-edit-profile-button').click(function(event){
+                // ############# WORK IN PROGRESSS ############## /////
+              $('#submit-edit-profile').click(function(event){
                   event.preventDefault();
-                  console.log('Clicked submit edit profile Button');
+                  console.log('Clicked Submit Edit Profile Button');
 
-                  var bioInputVal = $('#bio-input').val();
-                  var bioInput = { userBio: bioInputVal};
-                  console.log('bioInput: ' + bioInput);
-                  console.log('bioInput: ' + bioInput.userBio);
+                  var saveUserUpdate = function () {
+                    var currentUserID = $('#current-user').html();
+                    var my_airports = $("#my-airports").val();
 
-                  var currentUserID = $('#current-user').html();
+                    var userData = {
+                      // username: username,
+                      my_airports: my_airports
+                    }
 
-                  $.ajax({
-                  url: '/users/'+currentUserID,
-                  method: "PUT",
-                  data: bioInput
-                  }); // close $.ajax (inner)
+                    console.log(userData);
+                    console.log(currentUserID);
 
-                  $('#edit-profile-form').hide();
+                    $.ajax({
+                      url: "users/" + currentUserID,
+                      method: "PUT",
+                      data: userData
+                    }).done(function(){
+                      console.log("just executed AJAX");
+                      $('#edit-profile-form').hide();
+                    });
+
+                  }; // close saveUserUpdate
+
+                  saveUserUpdate();
+                  console.log("just executed saveUserUpdate()");
 
               }); // close #submit-edit-profile Button
 
