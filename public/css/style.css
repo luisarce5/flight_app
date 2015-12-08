@@ -1,19 +1,67 @@
-#user-actions {
-  /*position: relative;
-  float: right;*/
-  text-align: right;
-  margin-right: 25px;
-  margin-top: 15px;
-  margin-bottom: 50px;
-  /*border-bottom: 1px solid black;*/
-}
-
 body {
   /*border-top: 1px solid black;*/
+  /*background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Cessna.206h.stationair2.arp.jpg');*/
 }
 
 #user-actions {
-  align-items: center;
+  text-align: right;
+  margin-right: 0px;
+  margin-top: 0px;
+  height: 50px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid black;
+  /*background-color: skyblue;*/
+  padding-top: 0px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/91/Cessna.206h.stationair2.arp.jpg');
+  background-size: 80px 60px;
+  background-repeat: repeat-x;
+}
+
+#user-actions-links {
+  color: black;
+  float: right;
+  padding-left: 25px;
+  margin-top: 0px;
+  margin-right: 0px;
+  height: 50px;
+  background-color: skyblue;
+  /*margin-bottom: 15px;*/
+}
+
+#user-profile {
+  padding: 10px 5px 10px 5px;
+  border: 1px black solid;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 375px;
+}
+
+#edit-profile-form {
+  padding: 10px 5px 10px 5px;
+  border: 1px black solid;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 375px;
+}
+
+
+#welcome-user {
+  float: right;
+  /*text-align: right;*/
+  margin-top: 0px;
+  margin-right: 0px;
+  width: 175px;
+  height: 50px;
+  /*margin-left: 15px;*/
+  font-size: 14px;
+  background-color: skyblue;
+}
+
+
+#user-welcome {
+position: fixed;
+margin-top: 15px;
+margin-left: 15px;
 }
 
 #signup-success {
@@ -44,4 +92,15 @@ body {
 #signup-success {
   width: 400px;
   margin: 0 auto;
+}
+
+#login-link {
+  /*color: black;
+  border: 1px solid black;
+  background-color: white;*/
+}
+
+#signup-link {
+  /*color: black;
+  background color: skyblue;*/
 }

@@ -54,6 +54,9 @@ $(function() {
   $('#signup-form').hide();
   $('#signup success').hide();
   $('#logout-link').hide();
+  $('#my-profile').hide();
+  $('#edit-profile-form').hide();
+  $('#user-profile').hide();
 
   // Event Lister to Let User Sign Up => Display signup form
   $('#signup-link').click((event) => {
@@ -103,6 +106,8 @@ $(function() {
     })
   }) // close Event Listener for logout link
 
+
+
   // Event Listener for Log In Submit button
   $('#submit-login').click((event) => {
     event.preventDefault();
@@ -131,14 +136,35 @@ $(function() {
         $('#login-link').hide();
         $('#signup-link').hide();
         $('#logout-link').show(); /// ###### PENDING
+        // $('#edit-profile-form').show();
+        $('#my-profile').show();
 
         // create & append a customized welcome message to the user-actions div
         let welcomeUser = document.createElement('div');
         welcomeUser.id = "welcome-user";
         // user.username is something we sent in the POST request, so it's still accesible with this syntax
-        welcomeUser.innerHTML = '<p> Hi, ' + user.username + ' is currently logged in </p>';
+        welcomeUser.innerHTML = '<p>' + user.username + ' is currently logged in </p>';
         console.log('user_id: ' + data.user._id);
-        $('#user-welcome').append(welcomeUser);
+        $('#user-actions').append(welcomeUser);
+
+        // Once a user has logged in, they can click on a link to view their profile.
+        $('#my-profile').click((event) => {
+          event.preventDefault();
+          console.log("my-profile button just clicked");
+          let myId = data.user._id;
+          console.log('myID: ' + myId);
+
+            $.ajax({
+              url: '/users/' + myId
+            })
+            .done(function(data) {
+              $('#user-profile').empty();
+              $('#airport-profile').empty();
+              console.log("about to showUser(data)");
+              showUser(data);
+            }) // ends .ajax
+        }) // ends click event on my-profile link
+
 
         // if user is not granted token, show a "not found" message
       } else {
@@ -167,12 +193,56 @@ $(function() {
     result.append('<p><strong> Delay: </strong> '+ delay + '</p>');
     result.append('<p><strong> Delay Reason: </strong>' + airportData.status.reason + '</p>');
     result.append('<p><strong> Temp: </strong>' + airportData.weather.temp + '</p>');
-    result.append('<p><strong> Visibility (miles): </strong>' + airportData.weather.visibility + '</p>');
+    result.append('<p><strong> Visibility: </strong>' + airportData.weather.visibility + ' miles</p>');
     result.append('<p><strong> Weather Conditions: </strong>' + airportData.weather.weather + '</p>');
     result.append('<p><strong> Wind: </strong>' + airportData.weather.wind + '</p>');
-
   }; // close showAirport
 
+  let showUser = function(data){
+    $('#user-profile').show();
+    console.log("executing showUser");
+    let result = $('#user-profile');
+    console.log(data[0].username);
+    console.log(data[0].my_airports);
+    result.append('<p><strong> Username: </strong>' + data[0].username + '</p>' );
+    result.append('<p><strong> My Airports: </strong>' + data[0].my_airports + '</p>');
+    result.append('<button id="edit-profile-button" value="'+ data[0]._id +'">Edit my Profile</button>');
+
+        //===== Event listener for edit profile Button -
+        //====================================================
+        $('#edit-profile-button').click(function(event){
+          event.preventDefault();
+          // $('#user-profile').empty();
+          console.log('Clicked Edit Profile Button');
+          $('#edit-profile-form').show();
+
+              //===== Event listener for submit edit profile Button - WORK IN PROGRESS
+              //====================================================
+
+              $('#submit-edit-profile-button').click(function(event){
+                  event.preventDefault();
+                  console.log('Clicked submit edit profile Button');
+
+                  var bioInputVal = $('#bio-input').val();
+                  var bioInput = { userBio: bioInputVal};
+                  console.log('bioInput: ' + bioInput);
+                  console.log('bioInput: ' + bioInput.userBio);
+
+                  var currentUserID = $('#current-user').html();
+
+                  $.ajax({
+                  url: '/users/'+currentUserID,
+                  method: "PUT",
+                  data: bioInput
+                  }); // close $.ajax (inner)
+
+                  $('#edit-profile-form').hide();
+
+              }); // close #submit-edit-profile Button
+
+          }); // close #edit-profile-button
+
+  }; // close showUser
 
 
 }) // close main anomymous function

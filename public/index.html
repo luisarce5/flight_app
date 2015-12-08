@@ -10,22 +10,23 @@
   </head>
 
   <body>
+      <!-- <div id="user-welcome">
+      </div> -->
+
       <div id="user-actions">
-        <a href="#" id="login-link">Log In</a> |
-        <a href="#" id="signup-link">Sign Up</a>
-        <a href="#" id="logout-link">Logout</a>
+        <div id="user-actions-links">
+          <a href="#" id="login-link"> Log In </a> |
+          <a href="#" id="signup-link"> Sign Up </a>
+          <a href="#" id="my-profile"> View My Profile </a> |
+          <a href="#" id="logout-link"> Logout </a>
+        </div>
       </div>
+
 
       <div id="header">
-        <h2> The Flight App </h2>
-        <h3> Airport Information for Private Pilots </h3>
-        <p> Sum: {{1+2+3+4}} </p>
-      </div>
-
-      <div id="user-welcome">
-      </div>
-
-      <div id="user-welcome">
+        <h2> Flight App </h2>
+        <h3> Airport Information to plan your Flight</h3>
+        <!-- <p> Sum: {{1+2+3+4}} </p> -->
       </div>
 
       <div id="signup-success">
@@ -47,10 +48,9 @@
         <button id="submit-login"> Log in </button>
       </form>
 
-      <div id="airpor-test">
+      <div id="airport-test">
         <button id="JFK-button">Submit JFK</button>
       </div>
-
 
       <div id="airport-search-formholder">
         <form>
@@ -59,8 +59,17 @@
         </form>
       </div>
 
+      <div id="user-profile">
+      </div>
+
       <div id="airport-profile">
       </div>
+
+      <form id="edit-profile-form">
+        <h3> Edit User Profile </h3>
+        <p><strong>My Airports: </strong>  <input id="my-airports" type="text" name="my-airports"></p>
+        <button id="submit-edit-profile">Submit</button>
+      </form>
 
 
       <!-- <script type="text/javascript" src="js/script.js"></script> -->

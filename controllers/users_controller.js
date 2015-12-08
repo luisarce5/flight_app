@@ -59,7 +59,9 @@ router.route('/')
 router.route('/:id')
   .get((req, res, next) => {
     // console.log("req.headers.host: " + req.headers.host);
-    console.log(req.headers);
+    // console.log(req.headers);
+    console.log("The req.params.id: ");
+    console.log(req.params.id);
     User.find({_id: req.params.id}, (err, user) => {
       if (err) return next(err);
       res.send(user);
