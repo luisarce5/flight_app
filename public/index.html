@@ -6,14 +6,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/airportController.js"></script>
-    <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    <script type="text/javascript" src="js/script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Flight App</title>
   </head>
 
   <body>
-      <!-- <div id="user-welcome">
-      </div> -->
+
+    <section ng-controller="AirportController as airport">
 
       <div id="user-actions">
         <div id="user-actions-links">
@@ -61,25 +61,29 @@
             </form>
           </div>
 
+
           <div id="user-profile">
           </div>
 
-          <div ng-controller="AirportController as airport" id="airport-profile">
+          <div id="airport-profile">
               <div>
                 <button id="JFK-test" ng-click="airport.getAirport()">JFK Test</button>
               </div>
 
               <div id="results_display">
                 <p ng-model="airport.all"></p>
-                <p> {{ airport.all }} </p>
+                <p> Airport Code: {{ airport.airport.IATA }} </p>
+                <p> City: {{ airport.airport.city }} </p>
+                <p> Airport Name: {{ airport.airport.name }} </p>
+                <p> Delay: {{ airport.airport.delay }} </p>
+                <p> Delay Reason: {{ airport.airport.status.reason }} </p>
+                <p> Temp: {{ airport.airport.weather.temp }} </p>
+                <p> Visibility: {{ airport.airport.weather.visibility }} </p>
+                <p> Wind: {{ airport.airport.weather.wind }} </p>
                 {{ 5 + 10}}
               </div>
 
-            </div>
-
-
-
-          </div>
+          </div> <!-- close div id="airport-profile" -->
 
           <form id="edit-profile-form">
             <h3> Edit User Profile </h3>
@@ -89,6 +93,7 @@
       </div>
 
       <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    </section>
 
   </body>
 </html>
