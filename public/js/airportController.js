@@ -11,6 +11,7 @@ function AirportController($http){
   self.all = [];
   self.getAirport = getAirport;
   self.airport
+
   getAirport();
 
   function getAirport(){

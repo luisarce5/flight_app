@@ -61,27 +61,31 @@
             </form>
           </div>
 
+          <!-- <form class="airport-search-formholder" ng-submit='airportController.getAirport()'>
+            <label for "airportCode"> Search by Airport Code</label>
+            <input id="airport-button" type="text" placeholder="Airport Code" >
+          </form> -->
 
           <div id="user-profile">
           </div>
 
           <div id="airport-profile">
-              <div>
-                <button id="JFK-test" ng-click="airport.getAirport()">JFK Test</button>
-              </div>
+             <div>
+               <button id="JFK-test" ng-click="airport.getAirport()">JFK Test</button>
+             </div>
 
-              <div id="results_display">
-                <p ng-model="airport.all"></p>
-                <p> Airport Code: {{ airport.airport.IATA }} </p>
-                <p> City: {{ airport.airport.city }} </p>
-                <p> Airport Name: {{ airport.airport.name }} </p>
-                <p> Delay: {{ airport.airport.delay }} </p>
-                <p> Delay Reason: {{ airport.airport.status.reason }} </p>
-                <p> Temp: {{ airport.airport.weather.temp }} </p>
-                <p> Visibility: {{ airport.airport.weather.visibility }} </p>
-                <p> Wind: {{ airport.airport.weather.wind }} </p>
-                {{ 5 + 10}}
-              </div>
+             <div id="results_display">
+               <p ng-model="airport.all"></p>
+               <p> Airport Code: {{ airport.airport.IATA }} </p>
+               <p> City: {{ airport.airport.city }} </p>
+               <p> Airport Name: {{ airport.airport.name }} </p>
+               <p> Delay: {{ airport.airport.delay }} </p>
+               <p> Delay Reason: {{ airport.airport.status.reason }} </p>
+               <p> Temp: {{ airport.airport.weather.temp }} </p>
+               <p> Visibility: {{ airport.airport.weather.visibility }} </p>
+               <p> Wind: {{ airport.airport.weather.wind }} </p>
+               {{ 5 + 10}}
+             </div>
 
           </div> <!-- close div id="airport-profile" -->
 
