@@ -6,21 +6,21 @@ $(function() {
 
   // ===== Event listener for Submit JFK button to search for JFK Airport & display Airport info
   // =====================================================================================
-  $('#JFK-button').click(function(event){
-    event.preventDefault();
-    console.log('Clicked JFK Button');
-
-    // Test Case: Retrieve information for JFK Airport from API & display in console
-      $.ajax({
-        url: 'http://services.faa.gov/airport/status/JFK?format=application/json'
-      }).done(function(airportData){
-        console.log('airport JFK selected');
-        console.log('here is the data for JFK airport: ');
-        console.log(airportData);
-        // showAirport(airportData);
-      }); // close Ajax
-
-    }); // close #JFK-button
+  // $('#JFK-button').click(function(event){
+  //   event.preventDefault();
+  //   console.log('Clicked JFK Button');
+  //
+  //   // Test Case: Retrieve information for JFK Airport from API & display in console
+  //     $.ajax({
+  //       url: 'http://services.faa.gov/airport/status/JFK?format=application/json'
+  //     }).done(function(airportData){
+  //       console.log('airport JFK selected');
+  //       console.log('here is the data for JFK airport: ');
+  //       console.log(airportData);
+  //       // showAirport(airportData);
+  //     }); // close Ajax
+  //
+  //   }); // close #JFK-button
 
   // ===== Event listener for Submit Code button to search for any Airport by Airport Code & display Airport info
   // =====================================================================================

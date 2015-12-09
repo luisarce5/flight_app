@@ -53,26 +53,27 @@
           <!-- <div id="airport-test">
             <button id="JFK-button">Submit JFK</button>
           </div> -->
-
+<!--
           <div id="airport-search-formholder">
             <form>
               Search by Airport Code: <input id="airport-input" type="text" name="airport-code">
               <input id="airport-button" type="submit" value = "Submit Code">
             </form>
-          </div>
+          </div> -->
 
-          <!-- <form class="airport-search-formholder" ng-submit='airportController.getAirport()'>
+          <form class="airport-search-formholder" ng-submit='airport.getAirport()'>
             <label for "airportCode"> Search by Airport Code</label>
-            <input id="airport-button" type="text" placeholder="Airport Code" >
-          </form> -->
+            <input id="airport-code" type="text" placeholder="3 Digit Code" ng-model="airport.airportCode">
+            <input type="submit" value="Get Airport" class="md-button md-raised">
+          </form>
 
           <div id="user-profile">
           </div>
 
           <div id="airport-profile">
-             <div>
+             <!-- <div>
                <button id="JFK-test" ng-click="airport.getAirport()">JFK Test</button>
-             </div>
+             </div> -->
 
              <div id="results_display">
                <p ng-model="airport.all"></p>
