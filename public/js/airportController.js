@@ -25,7 +25,7 @@ function AirportController($http){
     console.log(self.airportCode);
     $http
       // .get('http://services.faa.gov/airport/status/JFK?format=application/json')
-      .get('http://services.faa.gov/airport/status/' + self.airportCode + '?format=application/json')
+      .get('https://services.faa.gov/airport/status/' + self.airportCode + '?format=application/json')
       .then(function(response){
         self.airport = response.data;
         console.log("Here is the response:");
