@@ -32,7 +32,7 @@ $(function() {
     console.log('Airport Code: ' + airportCode);
 
       $.ajax({
-        url: 'http://services.faa.gov/airport/status/' + airportCode + '?format=application/json'
+        url: 'https://services.faa.gov/airport/status/' + airportCode + '?format=application/json'
       }).done(function(airportData){
         console.log('here is the data for the airport selected: ');
         console.log(airportData);
